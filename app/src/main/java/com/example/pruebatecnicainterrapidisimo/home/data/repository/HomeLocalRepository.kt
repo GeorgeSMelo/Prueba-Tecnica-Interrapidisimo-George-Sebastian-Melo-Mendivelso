@@ -24,4 +24,8 @@ class HomeLocalRepository @Inject constructor(
             listaDeEsquemas = listadoEsquemas.transformarListadoEsquemaBaseDatosDomainAListadoEsquemasTablasEntity()
         )
     }
+
+    override suspend fun limpiarEsquemasBaseDatos() {
+        esquemasTablasDAO.limpiarEsquemasTablas()
+    }
 }

@@ -7,6 +7,7 @@ import com.example.pruebatecnicainterrapidisimo.core.internet.ApiResponseStatus
 import com.example.pruebatecnicainterrapidisimo.home.domain.model.EsquemaBaseDatosDomain
 import com.example.pruebatecnicainterrapidisimo.home.domain.model.InformacionUsuarioDomain
 import com.example.pruebatecnicainterrapidisimo.home.domain.useCases.GuardarEsquemasTablasUseCase
+import com.example.pruebatecnicainterrapidisimo.home.domain.useCases.LimpiarEsquemasTablasGuardadosUseCase
 import com.example.pruebatecnicainterrapidisimo.home.domain.useCases.ObtenerEsquemaBaseDatosRemoteUseCase
 import com.example.pruebatecnicainterrapidisimo.home.domain.useCases.ObtenerInformacionUsuarioUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,7 +18,8 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     private val obtenerInformacionUsuarioUseCase: ObtenerInformacionUsuarioUseCase,
     private val obtenerEsquemaBaseDatosRemoteUseCase: ObtenerEsquemaBaseDatosRemoteUseCase,
-    private val guardarEsquemasTablasUseCase: GuardarEsquemasTablasUseCase
+    private val guardarEsquemasTablasUseCase: GuardarEsquemasTablasUseCase,
+    private val limpiarEsquemasTablasGuardadosUseCase: LimpiarEsquemasTablasGuardadosUseCase,
 ) : ViewModel() {
 
     var estadoObtenerEsquemas = MutableLiveData<ApiResponseStatus<List<EsquemaBaseDatosDomain>>>()
@@ -32,6 +34,7 @@ class HomeViewModel @Inject constructor(
         estadoObtenerEsquemas.value = ApiResponseStatus.Loading()
         val respuestaApi = obtenerEsquemaBaseDatosRemoteUseCase()
         if (respuestaApi is ApiResponseStatus.Success){
+            limpiarEsquemasTablasGuardadosUseCase()
             guardarEsquemasTablasUseCase(
                 listadoEsquemas = respuestaApi.data
             )

@@ -15,4 +15,7 @@ interface InformacionUsuarioDAO {
     @Query("SELECT * FROM informacionusuario ORDER BY id DESC LIMIT 1")
     suspend fun obtenerUltimoUsuario(): InformacionUsuarioEntity?
 
+    @Query("DELETE FROM informacionusuario")
+    suspend fun limpiarInformacionUsuario()
+
 }

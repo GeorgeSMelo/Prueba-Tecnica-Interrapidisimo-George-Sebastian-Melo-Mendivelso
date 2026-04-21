@@ -14,4 +14,7 @@ interface EsquemasTablasDAO {
     @Query("SELECT * FROM EsquemasTablas")
     suspend fun obtenerEsquemas() : List<EsquemasTablasEntity>
 
+    @Query("DELETE FROM EsquemasTablas")
+    suspend fun limpiarEsquemasTablas()
+
 }

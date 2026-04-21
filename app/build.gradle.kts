@@ -66,8 +66,8 @@ dependencies {
     implementation(libs.liferecycle.runtime)
 
     //RETROFIT & NETWORKING
-    implementation("com.squareup.retrofit2:retrofit:2.11.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+    implementation(libs.retrofit2.converter.gson)
+    implementation(libs.retrofit2.retrofit)
 
     //HILT
     implementation(libs.hilt.android)

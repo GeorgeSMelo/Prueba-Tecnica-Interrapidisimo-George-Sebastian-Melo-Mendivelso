@@ -6,4 +6,5 @@ import com.example.pruebatecnicainterrapidisimo.home.domain.model.InformacionUsu
 interface HomeLocalRepositoryInterface {
     suspend fun obtenerInformacioUsuario() : InformacionUsuarioDomain
     suspend fun guardarEsquemasBaseDatos(listadoEsquemas: List<EsquemaBaseDatosDomain>)
+    suspend fun limpiarEsquemasBaseDatos()
 }

@@ -9,6 +9,7 @@ import com.example.pruebatecnicainterrapidisimo.login.domain.model.CredencialesA
 import com.example.pruebatecnicainterrapidisimo.login.domain.model.EnumChequeoVersion
 import com.example.pruebatecnicainterrapidisimo.login.domain.useCases.GuardarUsuarioUseCase
 import com.example.pruebatecnicainterrapidisimo.login.domain.useCases.IniciarSesionUseCase
+import com.example.pruebatecnicainterrapidisimo.login.domain.useCases.LimpiarUsuarioUseCase
 import com.example.pruebatecnicainterrapidisimo.login.domain.useCases.ValidateControlVersionUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -18,7 +19,8 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor(
     private val validateControlVersionUseCase: ValidateControlVersionUseCase,
     private val iniciarSesionUseCase: IniciarSesionUseCase,
-    private val guardarUsuarioUseCase: GuardarUsuarioUseCase
+    private val guardarUsuarioUseCase: GuardarUsuarioUseCase,
+    private val limpiarUsuarioUseCase: LimpiarUsuarioUseCase
 ): ViewModel(
 ){
     var estadoVersion : EnumChequeoVersion? = null
@@ -42,6 +44,7 @@ class LoginViewModel @Inject constructor(
     }
 
     fun iniciarSesion() = viewModelScope.launch {
+
         stateIniciarSesion.value = ApiResponseStatus.Loading()
         val credencialesUsuario = CredencialesAuthenticaUsuarioDomain(
             mac = "",
@@ -54,10 +57,12 @@ class LoginViewModel @Inject constructor(
             credencialesUsuario = credencialesUsuario
         )
         if(respuestaApi is ApiResponseStatus.Success){
+            limpiarUsuarioUseCase()
             guardarUsuarioUseCase(
                 informacionUsuario = respuestaApi.data
             )
         }
+
         stateIniciarSesion.value = respuestaApi
     }
 
