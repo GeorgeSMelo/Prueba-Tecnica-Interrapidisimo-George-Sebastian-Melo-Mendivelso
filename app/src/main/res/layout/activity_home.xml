@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/tvNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre:"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Usuario:"
+        android:paddingTop="8dp" />
+
+    <TextView
+        android:id="@+id/tvIdentificacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ID:"
+        android:paddingTop="8dp" />
+
+    <Button
+        android:id="@+id/btnTablas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Ver Tablas" />
+
+    <Button
+        android:id="@+id/btnLocalidades"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ver Localidades" />
+
+</LinearLayout>

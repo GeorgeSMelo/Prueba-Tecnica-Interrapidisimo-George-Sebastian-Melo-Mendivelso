@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">PruebaTecnicaInterrapidisimo</string>
+    <string name="tablas">Tablas</string>
+    <string name="localidades">Localidades</string>
+    <string name="validar_version">Validar Version</string>
+    <string name="login">Login</string>
+</resources>
