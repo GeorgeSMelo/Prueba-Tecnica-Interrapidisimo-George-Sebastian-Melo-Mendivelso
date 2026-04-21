@@ -79,7 +79,11 @@ fun LoginScreen(
             else -> Unit
         }
         when(stateIniciarSesion){
-            is ApiResponseStatus.Error -> {}
+            is ApiResponseStatus.Error -> {
+                showSnackbar(
+                    mensaje = (stateIniciarSesion as ApiResponseStatus.Error<String>).message
+                )
+            }
             is ApiResponseStatus.Loading -> {
                 LoaderBar(
                     modifier = Modifier.fillMaxSize()

@@ -90,4 +90,11 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+
+    //Coroutines Test
+    testImplementation(libs.coroutines.test)
+    testImplementation(libs.androidx.arch.core)
+
+    //Mockk
+    testImplementation(libs.mockk)
 }

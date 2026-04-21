@@ -18,7 +18,9 @@ liferecycle = "2.8.0"
 navigation-compose = "2.7.7"
 hiltNavigationCompose = "1.2.0"
 retrofit = "2.11.0"
-
+coroutinesTest = "1.7.3"
+androidxArchCore = "2.2.0"
+mockk = "1.14.6"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -61,6 +63,15 @@ room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
 #Retrofit
 retrofit2-retrofit = {module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit"}
 retrofit2-converter-gson = {module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit"}
+
+#Coroutines Test
+coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutinesTest" }
+
+#androidx Arch Core
+androidx-arch-core = { group = "androidx.arch.core", name = "core-testing", version.ref = "androidxArchCore" }
+
+#Mockk
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

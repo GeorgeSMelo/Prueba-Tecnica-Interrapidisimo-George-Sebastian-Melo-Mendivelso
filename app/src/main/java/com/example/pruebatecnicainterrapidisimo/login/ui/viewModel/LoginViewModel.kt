@@ -44,7 +44,6 @@ class LoginViewModel @Inject constructor(
     }
 
     fun iniciarSesion() = viewModelScope.launch {
-
         stateIniciarSesion.value = ApiResponseStatus.Loading()
         val credencialesUsuario = CredencialesAuthenticaUsuarioDomain(
             mac = "",
